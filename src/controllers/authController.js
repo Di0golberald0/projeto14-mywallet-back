@@ -11,3 +11,19 @@ export async function signUp(req, res) {
 
   res.sendStatus(201);
 }
+
+export async function signIn(req, res) {
+  const { email, password } = req.body;
+
+  const user = await db.collection('users').findOne({ email });
+
+  if (user && bcrypt.compareSync(password, user.password)) {
+    const token = uuid();
+
+    await db.collection('sessions').insertOne({ token, userId: user._id });
+
+    res.send(token);
+  } else {
+    res.sendStatus(401);
+  }
+}
