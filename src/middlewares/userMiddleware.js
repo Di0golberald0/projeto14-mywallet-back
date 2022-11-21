@@ -1,6 +1,6 @@
 import userSchema from "../schemas/userSchema.js";
 
-export function authMiddleware(req, res, next) {
+export function userMiddleware(req, res, next) {
   const user = req.body;
 
   const validation = userSchema.validate(user);
