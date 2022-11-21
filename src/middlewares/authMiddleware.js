@@ -8,17 +8,17 @@ export async function authMiddleware(req, res, next) {
   console.log(token)
 
   if (!token) {
-    return res.sendStatus(401)
+    return res.status(401).send("Token não existe");
   }
 
   const session = await db.collection('sessions').findOne({ token });
   if (!session) {
-    return res.sendStatus(401)
+    return res.status(401).send("Sessão não existe");
   }
 
   const user = await db.collection('users').findOne({ _id: session.userId });
   if (!user) {
-    return res.sendStatus(401);
+    return res.status(401).send("Usuário não existe");;
   }
 
   res.locals.session = session;

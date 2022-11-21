@@ -5,7 +5,7 @@ export function userMiddleware(req, res, next) {
 
   const validation = userSchema.validate(user);
   if (validation.error) {
-    return res.sendStatus(422);
+    return res.status(422).send("Erro dna Validação");
   }
 
   next();

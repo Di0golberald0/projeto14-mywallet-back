@@ -24,7 +24,6 @@ export async function signIn(req, res) {
 
     res.send(token);
   } else {
-    console.log("Erro na entrada")
-    res.sendStatus(401);
+    res.status(401).send("Erro no SignIn");
   }
 }
