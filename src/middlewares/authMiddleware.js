@@ -18,5 +18,7 @@ export async function authMiddleware(req, res, next) {
     return res.sendStatus(401);
   }
 
+  res.locals.session = session;
+  res.locals.user = user;
   next();
 }
