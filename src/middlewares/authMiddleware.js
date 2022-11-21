@@ -1,6 +1,6 @@
-import userSchema from "../schemas/userSchema";
+import userSchema from "../schemas/userSchema.js";
 
-export function schemaValidationMiddleware(req, res, next) {
+export function authMiddleware(req, res, next) {
   const user = req.body;
 
   const validation = userSchema.validate(user);
