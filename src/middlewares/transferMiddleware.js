@@ -5,7 +5,7 @@ export function transferMiddleware(req, res, next) {
 
   const validation = transferSchema.validate({ value, description, type });
   if (validation.error) {
-    return res.status(422).send("Erro dna Validação");;
+    return res.status(422).send("Erro dna Validação");
   }
 
   if(type === 'exit' && value >= 0) {
