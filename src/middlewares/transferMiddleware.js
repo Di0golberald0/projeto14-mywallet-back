@@ -8,5 +8,6 @@ export function transferMiddleware(req, res, next) {
     return res.sendStatus(422);
   }
 
+  res.locals.transfer = { value, description, type };
   next();
 }
