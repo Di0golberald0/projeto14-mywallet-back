@@ -1,6 +1,6 @@
 import db from "../db.js";
 
-export async function userMiddleware(req, res, next) {
+export async function authMiddleware(req, res, next) {
   const { authorization } = req.headers;
   const token = authorization?.replace('Bearer ', '')
 

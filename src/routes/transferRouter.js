@@ -3,7 +3,7 @@ import { transferAdded, transfersListed } from '../controllers/transferControlle
 import { authMiddleware } from '../middlewares/authMiddleware.js';
 import { transferMiddleware } from '../middlewares/transferMiddleware.js';
 
-const transferRouter = express.Router();
+const transferRouter = Router();
 transferRouter.post('/transfer', authMiddleware, transferMiddleware, transferAdded);
 transferRouter.get('/transfer', authMiddleware, transfersListed);
 
